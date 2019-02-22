@@ -1,0 +1,1 @@
+jQuery.fn.dataTableExt.oSort["chinese-asc"]=function(x,y){return x.localeCompare(y)};jQuery.fn.dataTableExt.oSort["chinese-desc"]=function(x,y){return y.localeCompare(x)};jQuery.fn.dataTableExt.sErrMode="console";jQuery.fn.dataTableExt.aTypes.push(function(sData){var reg=/^[\u4e00-\u9fa5]{0,}$/;if(reg.test(sData)){return"chinese"}return null});

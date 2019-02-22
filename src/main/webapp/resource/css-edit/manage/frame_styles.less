@@ -1,0 +1,190 @@
+@import "../common/color";
+
+/**
+ * 设置iframe页面
+ */
+html, body {
+  width: 100%;
+  height: 100%;
+}
+html {
+  padding-top: 20px;
+  padding-bottom: 50px;
+  background: @color_lightgray;
+  overflow: auto;
+}
+/**
+ * 页面主体内容
+ */
+body > .main {
+  height: 100%;
+  > * {
+    background: #fff;
+    padding-left: 1.6rem;
+    padding-right: 1.6rem;
+  }
+  > *:last-child {
+    padding-bottom: 1.6rem;
+    margin-bottom: 1.6rem;
+  }
+}
+.am-table > tbody > tr{
+  td:first-child{
+    a{
+      color: #000;
+    }
+    a:hover{
+      color: red;
+    }
+  }
+  td{
+    vertical-align: middle;
+  }
+}
+
+/**
+ * 首页日历样式微调
+ */
+#datetimepicker > div {
+  border: 1px solid @color_red;
+  width: 100%;
+  padding: 0;
+}
+
+/**
+ * 头像
+ */
+.ifr-img-head {
+  width: 200px !important;
+  height: 200px !important;
+  margin-right: 1rem;
+  &.ifr-img-head-sm {
+    width: 62px !important;
+    height: 62px !important;
+  }
+}
+
+/**
+ * 详细内容介绍
+ */
+.ifr-div-info-box {
+  &.ifr-div-info-box-strip {
+    p {
+      margin: .8rem 0;
+    }
+  }
+}
+
+/**
+ * 分页
+ */
+.ifr-div-pagebean {
+  .am-pagination {
+    text-align: center;
+    margin: 0;
+    padding-top: 1.6rem;
+  }
+}
+
+/**
+ * 上传文件输入框
+ */
+.ifr-input-head {
+  position: absolute;
+  opacity: 0;
+  left: 100px;
+  width: 100px;
+  height: 30px;
+}
+
+/**
+ * 表格中uCheck复选框的调整
+ */
+.ifr-table-with-checkbox {
+  input[type=checkbox] {
+    width: 15px;
+    height: 15px;
+  }
+  th input[type=checkbox] {
+    margin: 4px;
+  }
+  td input[type=checkbox] {
+    margin: 8px 4px;
+  }
+}
+
+/**
+ * 详情页面上部分内容的收起
+ */
+.ifr-div-shrink {
+  border-bottom: 1px solid @color_gray;
+  a {
+    background: @color_deepGray;
+    padding: 2px 4px;
+  }
+}
+
+/**
+ * 点名按钮
+ */
+.ifr-roll-call-btn-group {
+  button {
+    margin: 2rem;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+  }
+}
+
+.ifr-bg-yellow {
+  background: darken(@color_yellow, 10%);
+  color: #fff;
+}
+
+/**
+ * 分数/出勤情况展示框（可修改)
+ */
+.awardorstate-show{
+  height: 100%;
+  float: left;
+  padding: .5em 1em;
+  line-height: 1.2;
+}
+.presense-bg{
+  background-color: @color_green;
+}
+.leave-bg{
+  background-color: #f37b1d;
+}
+.late-bg{
+  background-color: #0e90d2;
+}
+.absense-bg{
+  background-color: @color_red;
+}
+.award-bg{
+  background-color: #3bb4f2;
+}
+.late-caret-down{
+  border-color: #0099FF;
+  color:white;
+}
+.award-caret-down{
+  background-color: #3bb4f2;
+  border-color: #23abf0;
+  height: 100%;
+}
+/**
+ * 分数/出勤情况展示框（不可修改)
+ */
+.awardorstate-onlyshow{
+  height: 100%;
+  padding: .5em 1em;
+  line-height: 1.2;
+}
+/**
+ * 表格加宽底部margin方便展示下拉组件
+ */
+.table-margin-bottom{
+  margin-bottom: 14rem;
+}

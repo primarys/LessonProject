@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.project.model.RollCall" table="tb_roll_call" dynamic-insert="true">
+    
+        <id name="id" column="id">
+            <generator class="native"  />
+        </id>
+        <many-to-one name="student" class="com.project.model.Student">
+            <column name="student_id">
+                <comment>学生id</comment>
+            </column>
+        </many-to-one>
+        <property name="state" type="java.lang.Short">
+            <column name="state">
+                <comment>点名情况</comment>
+            </column>
+        </property>
+        <property name="createTime" type="java.util.Date">
+            <column name="create_time">
+                <comment>创建时间</comment>
+            </column>
+        </property>
+        <property name="delFlag">
+            <column name="del_flag" default="1" not-null="true">
+                <comment>删除状态</comment>
+            </column>
+        </property>
+        <many-to-one name="lesson" class="com.project.model.Lesson">
+            <column name="lesson_id">
+                <comment>lesson_id</comment>
+            </column>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

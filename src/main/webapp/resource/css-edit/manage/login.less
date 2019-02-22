@@ -1,0 +1,148 @@
+@import "../common/color";
+html,
+body {
+  width: 100%;
+  height: 100%;
+  min-height: 600px;
+}
+/*body {
+  background: url("../../image/common/login_bg.jpg") repeat left center;
+  background-size: cover;
+}*/
+header {
+  margin: 50px 0;
+  .logo img {
+    height: 50px;
+  }
+  #website-logo {
+    margin-left: 2rem;
+    padding-left: 2rem;
+    height: 50px;
+    border-left: 2px solid #fff;
+  }
+}
+.bg {
+  background: url("../../image/common/login_bg.jpg");
+  height: 100%;
+  width: 100%;
+}
+.bg-blur {
+  float: left;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  -webkit-filter: blur(15px);
+  -moz-filter: blur(15px);
+  -o-filter: blur(15px);
+  -ms-filter: blur(15px);
+  filter: blur(15px);
+}
+.content-front {
+  position:absolute;
+  width: 100%;
+  /*left: 10px;
+  right: 10px;
+  height:600px;
+  line-height: 600px;*/
+}
+form {
+  width: 360px;
+  //margin: 10px auto;
+  padding: 20px;
+  //font-size: 14px;
+  background-color: rgba(255,255,255,0.8);
+  //border: 1px solid #d8dee2;
+  //-webkit-border-radius: 5px;
+  //-moz-border-radius: 5px;
+  //border-radius: 5px;
+  //.am-form-group {
+  //  margin: 20px;
+  //}
+  .my-form-content{
+    position: relative;
+    border-bottom: 1px solid grey;
+    margin: 25px 0 25px 0;
+  }
+  .my-form-icon{
+    position: absolute;
+    font-size: 26px;
+    left:0;
+    top:-44%;
+  }
+  .my-name-form-label{
+    position: absolute;
+    text-align: center;
+    left: 34.5%;
+    z-index: -1;
+    top:0;
+    transform: scale(1);
+    transition: top .3s, transform .3s;
+  }
+  .my-password-form-label{
+    position: absolute;
+    text-align: center;
+    left: 46%;
+    z-index: -1;
+    top:0;
+    transform: scale(1);
+    transition: top .3s, transform .3s;
+  }
+  .my-form-name-label-input{
+    top: -100%;
+    transform: scale(.7)
+  }
+  .my-form-password-label-input{
+    top: -100%;
+    transform: scale(.7)
+  }
+  .my-form-field{
+    background: none;
+    outline: none;
+    width: 85%;
+    padding: 0 0 5px 5px;
+    text-align: center;
+  }
+  button:hover{
+    background-color: #e98f8c;
+    border-color: white;
+  }
+}
+.normal-input{
+  border:0;
+}
+.err-input{
+  border: solid red 1px;
+}
+//form {
+//  margin-top: 200px;
+//}
+footer {
+  color: #fff;
+  //position: absolute;
+  //left: 0;
+  //right: 0;
+  //bottom: 0;
+}
+@media only screen and (max-width: 640px) {
+  html, body {
+    min-height: 0;
+  }
+  header {
+    margin: 20px 0;
+    #pzc-logo {
+      display: block;
+      text-align: center;
+      margin-bottom: 1rem;
+      img {
+        height: 40px;
+      }
+    }
+    #website-logo {
+      display: block;
+      margin: 0 auto;
+      padding-left: 0;
+      height: 30px;
+      border-left: none;
+    }
+  }
+}

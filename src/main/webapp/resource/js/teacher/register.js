@@ -1,0 +1,1 @@
+var app=new Vue({el:"#wechat-login",data:{readProtocol:true},methods:{teacherWechatRegister:function(){location.href=CONST.$ctx+"/weixinLoginOrRegister"}}});

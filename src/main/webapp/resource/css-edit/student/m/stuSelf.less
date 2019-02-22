@@ -1,0 +1,99 @@
+@import "../../common/color";
+html,
+body {
+  width: 100%;
+  height: 100%;
+  min-height: 600px;
+}
+body {
+  background: url("../../../image/common/stucheck_bg.jpg") repeat-y;
+  background-size: cover;
+}
+header {
+  margin: 50px 0;
+  .logo img {
+    height: 50px;
+  }
+  #website-logo {
+    margin-left: 2rem;
+    padding-left: 2rem;
+    height: 50px;
+    border-left: 2px solid #f000ff;
+  }
+}
+footer {
+  color: #fff;
+  //position: absolute;
+  //left: 0;
+  //right: 0;
+  //bottom: 0;
+}
+@media only screen and (max-width: 640px) {
+  html, body {
+    min-height: 0;
+  }
+  header {
+    margin: 20px 0;
+    #pzc-logo {
+      margin-bottom: 1rem;
+      display: block;
+      text-align: center;
+      img {
+        height: 40px;
+      }
+    }
+    .logo{
+        margin: 0;
+      img{
+        display: block;
+        margin: auto;
+      }
+    }
+    #website-logo {
+      display: block;
+      margin: 2% auto;
+      padding-left: 0;
+      height: 30px;
+      border-left: none;
+    }
+  }
+  form{
+    padding-top: 47%;
+  }
+  a {
+    text-decoration: none;
+  }
+  .checkin-wrapper {
+    position: relative;
+    padding: 18px 0;
+    text-align: center;
+  }
+  .checkin-wrapper .checkin-btn {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    background-color: #39b8fe;
+    border: 6px solid #d4ebf8;
+    border-radius: 50%;
+    margin: 0 auto;
+    line-height: 90px;
+    font-size: 16px;
+    color: #fff;
+  }
+  .checkin-wrapper .checkin-btn.actived {
+    background-color: #279ee0;
+  }
+  .checkin-wrapper .out-link {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    color: #1e93d1;
+    font-size: 12px;
+  }
+  .base-block {
+    text-align: center;
+  }
+  .base-block{
+    margin: 20px auto 10px;
+  }
+}

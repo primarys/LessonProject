@@ -1,0 +1,1 @@
+var app=new Vue({el:"#register-form-wechat",data:{readProtocol:true},methods:{wechatRegister:function(){var jump=CONST.$ctx+"/stuSelf";var url=window.location.search;url=url.toString();var array=new Array;array=url.split("=");location.href=CONST.$ctx+"/weixinLogin?lessonId="+array[1]}}});

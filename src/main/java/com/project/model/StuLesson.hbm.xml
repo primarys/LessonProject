@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.project.model.StuLesson" table="tb_stu_lesson" dynamic-insert="true">
+        <id name="id" column="id">
+            <generator class="native"  />
+        </id>
+        <many-to-one name="student" class="com.project.model.Student" not-null="true" cascade="delete">
+            <column name="student_id">
+                <comment>对应学生</comment>
+            </column>
+        </many-to-one>
+        <many-to-one name="lesson" class="com.project.model.Lesson" not-null="true" cascade="delete">
+            <column name="lesson_id">
+                <comment>对应课程</comment>
+            </column>
+        </many-to-one>
+        <property name="presense" type="java.lang.Integer">
+            <column name="presense" default="0">
+                <comment>出席次数</comment>
+            </column>
+        </property>
+        <property name="leaves" type="java.lang.Integer">
+            <column name="leaves" default="0">
+                <comment>请假次数</comment>
+            </column>
+        </property>
+        <property name="late" type="java.lang.Integer">
+            <column name="late" default="0">
+                <comment>缺席次数</comment>
+            </column>
+        </property>
+        <property name="absense" type="java.lang.Integer">
+            <column name="absense" default="0">
+                <comment>缺席次数</comment>
+            </column>
+        </property>
+        <property name="award" type="java.lang.Integer">
+            <column name="award" default="0">
+                <comment>回答加分</comment>
+            </column>
+        </property>
+        <property name="score" type="java.lang.Integer">
+            <column name="score" default="0">
+                <comment>平时成绩</comment>
+            </column>
+        </property>
+        <property name="delFlag" type="java.lang.Short">
+            <column name="del_flag" default="1" not-null="true">
+                <comment>删除标记</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

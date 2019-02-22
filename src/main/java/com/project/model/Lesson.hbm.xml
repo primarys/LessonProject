@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.project.model.Lesson" table="tb_lesson" dynamic-insert="true">
+    
+        <id name="id" column="id">
+            <generator class="native"  />
+        </id>
+        <many-to-one name="teacher" class="com.project.model.Teacher" not-null="true" cascade="delete">
+            <column name="teacher_id">
+                <comment>对应教师</comment>
+            </column>
+        </many-to-one>
+        <property name="lessonName" type="java.lang.String">
+            <column name="lesson_name">
+                <comment>课程名称</comment>
+            </column>
+        </property>
+        <property name="introduction" type="java.lang.String">
+            <column name="introduction">
+                <comment>课程详情</comment>
+            </column>
+        </property>
+        <property name="classinfo" type="java.lang.String">
+            <column name="class_info">
+                <comment>上课时间，地点</comment>
+            </column>
+        </property>
+        <property name="beginTime" type="java.util.Date">
+            <column name="begin_time">
+                <comment>开始时间</comment>
+            </column>
+        </property>
+        <property name="endTime" type="java.util.Date">
+            <column name="end_time">
+                <comment>截止时间</comment>
+            </column>
+        </property>
+        <many-to-one name="cover" class="com.project.model.PicStore">
+            <column name="cover_pic_id" default="3">
+                <comment>封面</comment>
+            </column>
+        </many-to-one>
+        <property name="timeStamp" type="java.lang.Long" >
+            <column name="time_stamp" default="0">
+                <comment>上课时间戳</comment>
+            </column>
+        </property>
+        <property name="notType" type="java.lang.Short" >
+            <column name="not_type" default="0">
+                <comment>这节课未点名的处理方式，0代表默认出席，1代表默认缺席</comment>
+            </column>
+        </property>
+        <property name="delFlag">
+            <column name="del_flag" default="1" not-null="true">
+                <comment>删除状态</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

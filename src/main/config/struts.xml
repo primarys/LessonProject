@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<!-- 配置为开发模式 -->
+    <constant name="struts.devMode" value="false" />
+    <!-- 把扩展名配置为action -->
+    <constant name="struts.action.extension" value=",action,do" />
+    <!-- 把主题配置为simple -->
+    <constant name="struts.ui.theme" value="simple" />
+    <!-- 更改struts请求最大限制，默认2M -->
+	<constant name="struts.multipart.maxSize" value="50000000" />
+    <!-- default包 -->
+    <package name="default" namespace="/" extends="struts-default">
+       <default-action-ref name="notFound" />
+	   <global-results>
+	        <result name="error">/WEB-INF/view/Error.jsp</result>
+			<result name="success">/WEB-INF/view/OK.jsp</result>
+			<result name="exception">/WEB-INF/view/exceptionIndex.jsp</result>
+			  
+	   </global-results>
+	  <!--  <global-exception-mappings>
+	    <exception-mapping exception="java.lang.Exception" result="exception"/>
+	    </global-exception-mappings> -->
+
+	   <!-- 配置异常处理action -->
+	   <!-- <global-exception-mappings>
+           <exception-mapping exception="java.sql.SQLException" result="exception"/>
+           <exception-mapping exception="java.lang.Exception" result="exception"/>
+     	</global-exception-mappings> -->
+		<!-- <action name="notFound">
+			<result>/WEB-INF/view/Error.jsp</result>
+		</action> -->	
+    </package>
+	
+	<package name="manages" namespace="/" extends="default">
+		<interceptors>
+			<interceptor name="manageinter" class="com.project.interceptor.account.AccountInterceptor"></interceptor>
+			<interceptor-stack name="manageinterstack">
+				<interceptor-ref name="manageinter"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="manageinterstack"/>
+		<!--管理员 -->
+		<!--<interceptors>
+		        <interceptor name="admininter" class="cn.wegoteam.shop.util.AdminInteceptor"></interceptor>	
+				<interceptor-stack name="admininterstack">
+					<interceptor-ref name="defaultStack"></interceptor-ref>
+					<interceptor-ref name="admininter"></interceptor-ref>
+				</interceptor-stack> 
+		</interceptors>-->
+		 <!-- 配置默认拦截器栈-->
+		 <!--<default-interceptor-ref name="admininterstack"/>
+	     <global-results>
+			<result name="login" type="chain">preLogin</result>
+			<result name="optresult_success">/WEB-INF/manage/operationresult_success.jsp</result>
+			<result name="optresult_error">/WEB-INF/manage/operationresult_error.jsp</result>
+		</global-results>-->
+		<!-- 上传图片 -->
+		<!--<action name="fileUpload" class="cn.wegoteam.shop.action.FileUploadAction"></action>-->
+	</package>
+	<package name="admins" namespace="/" extends="default">
+		<interceptors>
+			<interceptor name="admininter" class="com.project.interceptor.admin.AdminInterceptor"></interceptor>
+			<interceptor-stack name="admininterstack">
+				<interceptor-ref name="admininter"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="admininterstack"/>
+		<!--用户 -->
+		<!--<interceptors>
+		        <interceptor name="userinter" class="cn.wegoteam.shop.util.UserInteceptor"></interceptor>	
+				<interceptor-stack name="userinterstack">
+					<interceptor-ref name="defaultStack"></interceptor-ref>
+					<interceptor-ref name="userinter"></interceptor-ref>
+				</interceptor-stack> 
+		</interceptors>-->
+		 <!-- 配置默认拦截器栈-->
+		 <!--<default-interceptor-ref name="userinterstack"/>
+		 <global-results>
+			<result name="index">/WEB-INF/view/customer/orderStep/changeAddress.jsp</result>
+		</global-results>-->
+	</package>
+	<package name="teachers" namespace="/" extends="default">
+		<interceptors>
+			<interceptor name="teacherinter" class="com.project.interceptor.teacher.TeacherInterceptor"></interceptor>
+			<interceptor-stack name="teacherinterstack">
+				<interceptor-ref name="teacherinter"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="teacherinterstack"/>
+	</package>
+    <!-- Add packages here -->
+	<!-- 防止过滤掉websocket 的端点 -->
+	<package name="students" namespace="/" extends="default">
+	<interceptors>
+		<interceptor name="studentinter" class="com.project.interceptor.student.StudentInterceptor"></interceptor>
+		<interceptor-stack name="studentinterstack">
+			<interceptor-ref name="studentinter"></interceptor-ref>
+		</interceptor-stack>
+	</interceptors>
+	<default-interceptor-ref name="studentinterstack"/>
+</package>
+
+</struts>

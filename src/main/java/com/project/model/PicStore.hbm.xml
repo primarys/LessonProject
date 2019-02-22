@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="com.project.model.PicStore" table="tb_picstore" >
+
+        <id name="id" column="id">
+            <generator class="native" />
+        </id>
+		
+        <property name="picName" type="java.lang.String">
+            <column name="c_pic_name" length="64">
+                <comment>图片名称</comment>
+            </column>
+        </property>
+		
+        <property name="url" type="java.lang.String">
+            <column name="c_pic_url" length="255" not-null="true" default="'/LessonProject/resource/image/common/default_lesson_cover.jpg'">
+                <comment>缩略图地址</comment>
+            </column>
+        </property>
+		
+        <property name="oriUrl" type="java.lang.String">
+            <column name="c_big_pic_url" length="255" default="'/LessonProject/resource/image/common/default_lesson_cover.jpg'">
+                <comment>原图地址</comment>
+            </column>
+        </property>
+		<property name="delFlag">
+	        <column name="del_flag" default="1" not-null="true">
+	            <comment>删除状态</comment>
+	        </column>
+        </property>
+     </class>
+</hibernate-mapping>

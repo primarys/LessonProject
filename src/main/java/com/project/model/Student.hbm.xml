@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.project.model.Student" table="tb_student" dynamic-insert="true">
+    
+        <id name="id" column="id">
+            <generator class="native"  />
+        </id>
+        <property name="studentNum" type="java.lang.String" not-null="true">
+            <column name="student_num">
+                <comment>学号</comment>
+            </column>
+        </property>
+        <property name="password" type="java.lang.String" not-null="true">
+            <column name="password">
+                <comment>密码</comment>
+            </column>
+        </property>
+        <property name="weichat_openid" type="java.lang.String" not-null="false">
+            <column name="weichat_openid">
+                <comment>微信openId</comment>
+            </column>
+        </property>
+        <property name="nickname" type="java.lang.String" not-null="false">
+            <column name="nickname">
+                <comment>微信昵称</comment>
+            </column>
+        </property>
+        <property name="name" type="java.lang.String" not-null="true">
+            <column name="name">
+                <comment>姓名</comment>
+            </column>
+        </property>
+        <property name="sex" type="java.lang.Short">
+            <column name="sex" default="1">
+                <comment>性别</comment>
+            </column>
+        </property>
+        <many-to-one name="headPortrait" class="com.project.model.PicStore">
+            <column name="head_portrait" default="1">
+                <comment>头像</comment>
+            </column>
+        </many-to-one>
+        <property name="phoneNumber" type="java.lang.String">
+            <column name="phone_number" >
+                <comment>手机号</comment>
+            </column>
+        </property>
+        <property name="delFlag" type="java.lang.Short">
+            <column name="del_flag" default="1" not-null="true">
+                <comment>删除标记</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.project.model.Quiz" table="tb_quiz" dynamic-insert="true">
+    
+        <id name="id" column="id">
+            <generator class="native"  />
+        </id>
+        <many-to-one name="student" class="com.project.model.Student">
+            <column name="student_id">
+                <comment>学生id</comment>
+            </column>
+        </many-to-one>
+        <property name="award" type="java.lang.Integer">
+            <column name="award" default="0">
+                <comment>回答加分</comment>
+            </column>
+        </property>
+        <many-to-one name="lesson" class="com.project.model.Lesson">
+            <column name="lesson_id">
+                <comment>lesson_id</comment>
+            </column>
+        </many-to-one>
+        <property name="createTime" type="java.util.Date">
+            <column name="create_time">
+                <comment>创建时间</comment>
+            </column>
+        </property>
+        <property name="delFlag">
+            <column name="del_flag" default="1" not-null="true">
+                <comment>删除状态</comment>
+            </column>
+        </property>
+    </class>
+</hibernate-mapping>
