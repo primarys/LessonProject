@@ -135,8 +135,59 @@ new Vue({
                     }
                 }
             });
-        }
-    }
+        },
+        //修改点名状态
+        changeRollState: function (state,rollCallId,rollIndex) {
+            $.post('modifyAttendance', {
+                state: state,
+                rollCallId:rollCallId
+            }, function (ret) {
+                $("#changeRollStateDropdown"+rollIndex).dropdown('close');
+                if(state==1){
+                    $("#rollIndex"+rollIndex).html('<span class="awardorstate-show presense-bg am-text-white" style="height: 100%">出席</span>');
+                    $("#rollIndexDropdown"+rollIndex).html('<button class="am-btn am-btn-success" style="height: 100%;"><span class="am-icon-caret-down"></span></button>');
+                }
+                if(state==2){
+                    $("#rollIndex"+rollIndex).html('<span class="awardorstate-show leave-bg am-text-white" style="height: 100%">请假</span>');
+                    $("#rollIndexDropdown"+rollIndex).html('<button class="am-btn am-btn-warning leave-bg" style="height: 100%;"><span class="am-icon-caret-down"></span></button>');
+                }
+                if(state==3){
+                    $("#rollIndex"+rollIndex).html('<span class="awardorstate-show late-bg am-text-white" style="height: 100%">迟到</span>');
+                    $("#rollIndexDropdown"+rollIndex).html('<button class="am-btn late-bg late-caret-down" style="height: 100%;"><span class="am-icon-caret-down"></span></button>');
+                }
+                if(state==4){
+                    $("#rollIndex"+rollIndex).html('<span  class="awardorstate-show absense-bg am-text-white" style="height: 100%">缺席</span>');
+                    $("#rollIndexDropdown"+rollIndex).html('<button class="am-btn am-btn-danger" style="height: 100%;"><span class="am-icon-caret-down"></span></button>');
+                }
+                    $("#"+rollIndex+"rollCallIndex1").html(ret[0]);
+                    $("#"+rollIndex+"rollCallIndex2").html(ret[1]);
+                    $("#"+rollIndex+"rollCallIndex3").html(ret[2]);
+                    $("#"+rollIndex+"rollCallIndex4").html(ret[3]);
+                }, 'JSON');
+            },
+
+        //修改问答得分
+        changeQuizAward: function (quizId,quizIndex) {
+            var award =$("#AwardInput"+quizIndex).val();
+            var type="^[0-9]*[1-9][0-9]*$";
+            var r=new RegExp(type);
+            var flag=r.test(award);
+            if(!flag){
+                alert('请输入正整数')
+            }
+            else{
+                $.post('modifyQuiz',
+                    {quizId: quizId,
+                     award: award
+                    }, function (ret) {
+                        $("#changeQuizAwardDropdown" + quizIndex).dropdown('close');
+                        $("#quizIndex" + quizIndex).html('+'+award);
+                        $("#quizAwardIndex"+quizIndex).html(ret);
+                    }, 'JSON');
+            }
+            },
+
+}
 });
 
 function errorTip() {

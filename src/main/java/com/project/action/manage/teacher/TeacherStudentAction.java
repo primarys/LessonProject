@@ -91,7 +91,7 @@ public class TeacherStudentAction extends BaseAction<Teacher> {
     @Action(value = "modifyQuiz")
     public void modifyQuiz() {
         Integer quizId = getIntegerParameter("quizId");
-        Integer award = getIntegerParameter("award");
+        Integer award = getIntParameter("award", 0);
         Quiz quiz = quizService.getById(quizId);
         int fromAward = quiz.getAward();
         quiz.changeAward(award);
